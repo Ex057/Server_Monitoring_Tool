@@ -7,17 +7,25 @@ body {
 
 .container {
   display: flex;
+  margin-top: 74px;
   min-height: 100vh;
-  padding: 20px;
+  padding: 5px;
   flex-direction: row;
+  font-family: sans-serif;
+  background-color: #f4f6f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .page-content {
   flex-grow: 1;
-  margin-top: 60px;
-  margin-left: 200px;
+  margin-top: 5px;
+  margin-left: 5px;
+  right: 0;
 }
 
-.page-content, .sidebar {
-  width: 50%;
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 5px;
 }/*# sourceMappingURL=base.css.map */

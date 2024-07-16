@@ -1,28 +1,30 @@
 .sidebar {
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  top: 60px;
+  display: flex;
+  background-color: #ced8f8;
   left: 0;
-  bottom: 0;
-  padding: 20px;
+  bottom: 18px;
+  padding: 0;
+  margin: 0;
   z-index: 5;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 4px;
 }
 
 .sidebar menu {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 1px;
+  margin-top: 10px;
 }
 
 .sidebar menu li {
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 1px;
+  padding: 1px;
 }
 
 .sidebar menu a {
   display: block;
-  padding: 10px;
+  padding: 5px 5px;
   text-decoration: none;
   color: #333;
   border-radius: 4px;
@@ -30,5 +32,5 @@
 }
 
 .sidebar menu a:hover {
-  background-color: #ddd;
+  background-color: #a6bafa;
 }/*# sourceMappingURL=sidebar.css.map */

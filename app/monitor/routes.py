@@ -43,9 +43,11 @@ def reports():
 def run_test():
     data = request.get_json()
     print(data)
-    url = data.get('ip_address')
-    username = data.get('user_name')
-    password = data.get('password')
+    server_data = data.get('server')
+    url = server_data.get('ip_address')
+    username = server_data.get('user_name')
+    password = server_data.get('password')
+    print(url, username, password)
     if not url or not username or not password:
         return jsonify({"success": False, "message": "All parameters are required"}), 400
     
@@ -68,8 +70,8 @@ def run_test():
         analytics = test_result[1],
         dashboards = test_result[2],
         testTime = test_result[3],
-        owner_id = current_user
-        #last_checked = db.Column(db.DateTime, default=None)
+        owner_id = current_user.id,
+        last_checked = db.Column(db.DateTime, default=None)
     )
     db.session.add(new_test)
     db.session.commit()

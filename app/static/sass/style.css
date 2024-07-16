@@ -7,72 +7,103 @@ body {
 
 .container {
   display: flex;
+  margin-top: 74px;
   min-height: 100vh;
-  padding: 20px;
+  padding: 5px;
   flex-direction: row;
+  font-family: sans-serif;
+  background-color: #f4f6f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .page-content {
   flex-grow: 1;
-  margin-top: 60px;
-  margin-left: 200px;
+  margin-top: 5px;
+  margin-left: 5px;
+  right: 0;
 }
 
-.page-content, .sidebar {
-  width: 50%;
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 5px;
 }
 
 header {
-  background-color: #333;
+  background-color: #2c6693;
   color: #fff;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
-  position: fixed;
   top: 0;
   z-index: 10;
+  height: 64px;
+  position: fixed;
 }
 
 header h2 {
   margin: 0;
 }
 
+.login-text {
+  text-align: center;
+}
+
+.base-nav {
+  background-color: #2c6693;
+}
+
+.base-nav a {
+  display: inline-block;
+  padding: 5px 5px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.base-nav a:hover {
+  background-color: #3775a3;
+}
+
 footer {
-  background-color: #333;
+  background-color: #2c6693;
   color: #fff;
   padding: 10px;
   text-align: center;
   width: 100%;
-  position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 10;
 }
 
 .sidebar {
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  top: 60px;
+  display: flex;
+  background-color: #ced8f8;
   left: 0;
-  bottom: 0;
-  padding: 20px;
+  bottom: 18px;
+  padding: 0;
+  margin: 0;
   z-index: 5;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 4px;
 }
 
 .sidebar menu {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 1px;
+  margin-top: 10px;
 }
 
 .sidebar menu li {
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 1px;
+  padding: 1px;
 }
 
 .sidebar menu a {
   display: block;
-  padding: 10px;
+  padding: 5px 5px;
   text-decoration: none;
   color: #333;
   border-radius: 4px;
@@ -80,7 +111,7 @@ footer {
 }
 
 .sidebar menu a:hover {
-  background-color: #ddd;
+  background-color: #a6bafa;
 }
 
 .button {
@@ -104,26 +135,91 @@ footer {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
-  margin-left: 250px;
-  margin-top: 80px;
 }
 
 .content .item {
   background-color: #fff;
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
-.content .item a {
-  display: block;
+.content .item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.content .item h3 {
+  font-size: 1.5em;
+  color: #2c6693;
+  margin-bottom: 10px;
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-radius: 8px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content .item .details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 40px; /* Adjusted to account for the h3 element */
+}
+
+.content .item .details-grid .detail-card {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.content .item .details-grid .detail-card p {
+  margin: 0;
+}
+
+.content .item .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.content .item .actions a,
+.content .item .actions .button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2c6693;
+  border: none;
+  border-radius: 4px;
   text-decoration: none;
-  color: #333;
+  transition: background-color 0.3s ease;
 }
 
-.content .item a:hover {
-  text-decoration: underline;
+.content .item .actions a:hover,
+.content .item .actions .button:hover {
+  background-color: #0056b3;
+}
+
+.content .item .actions a:active,
+.content .item .actions .button:active {
+  background-color: #003d80;
+}
+
+.content .item .actions a:focus,
+.content .item .actions .button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 @media (max-width: 900px) {
@@ -141,21 +237,14 @@ footer {
 .messages {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 1px;
+  margin-bottom: 1px;
 }
 
 .messages p {
-  padding: 10px;
+  padding: 1px;
   background-color: #f0f0f0;
   border-radius: 4px;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
 }
 
 nav {
@@ -169,15 +258,65 @@ nav a {
   text-decoration: none;
 }
 
-.container {
-  margin: 20px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 .error {
   color: red;
+}
+
+.login_halfbox {
+  width: 30%;
+  margin: 0 0;
+  background-color: #2C6693;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #fff;
+  flex: 1;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 2;
+  font-family: Arial, sans-serif;
+}
+
+.textbox {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.textbox:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+.labels {
+  text-align: left;
+}
+
+.added {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+}
+
+.remember {
+  text-align: left;
+}
+
+.new-here {
+  text-align: right;
 }
 
 .flashes {
@@ -196,4 +335,30 @@ nav a {
 .flashes li.success {
   background-color: #d4edda;
   color: #155724;
+}
+
+.submit-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2C6693;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button:active {
+  background-color: #003d80;
+}
+
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }/*# sourceMappingURL=style.css.map */

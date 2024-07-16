@@ -1,26 +1,46 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Server Monitoring Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='sass/style.css') }}">
+  
+</head>
+<body>
+  
+  <main class="container">
+    <div class = "login_halfbox" >
+      <h2>Server Monitoring Dashboard</h2>
+      
+    </div>
+    <div class="login_form">
+      <h2>Login</h2>
+      <form method="post">
+        {{ form.hidden_tag() }}
+        <p class="labels">
+          {{ form.username.label }}<br>
+          {{ form.username(size=32, class="textbox" ) }}<br>
+          {% for error in form.username.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </p>
+        <p class="labels">
+          {{ form.password.label }}<br>
+          {{ form.password(size=32, class="textbox")  }}<br>
+          {% for error in error %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </p>
+        <p class="added">
+          <span class="remember">{{ form.remember_me() }} {{ form.remember_me.label }}</span>
+          <span class="new-here">  New here? <a href="{{ url_for('auth.register') }}">Register</a></span>
+        </p>
+        <p><input type="submit" class="submit-button" >  </p>
+      </form>
+    </div>
+  </main>
 
-{% block content %}
-  <div class="page-content">
-    <h2>Login</h2>
-    <form method="post">
-      {{ form.hidden_tag() }}
-      <p>
-        {{ form.username.label }}<br>
-        {{ form.username(size=32) }}<br>
-        {% for error in form.username.errors %}
-          <span class="error">{{ error }}</span>
-        {% endfor %}
-      </p>
-      <p>
-        {{ form.password.label }}<br>
-        {{ form.password(size=32) }}<br>
-        {% for error in error %}
-          <span class="error">{{ error }}</span>
-        {% endfor %}
-      </p>
-      <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-      <input type="submit" class="button">  
-    </form>
-  </div>
-{% endblock %}
+  {% block scripts %}{% endblock %}
+
+ 
+</body>
+</html>

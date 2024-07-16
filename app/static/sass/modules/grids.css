@@ -3,26 +3,91 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
-  margin-left: 250px;
-  margin-top: 80px;
 }
 
 .content .item {
   background-color: #fff;
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
-.content .item a {
-  display: block;
+.content .item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.content .item h3 {
+  font-size: 1.5em;
+  color: #2c6693;
+  margin-bottom: 10px;
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-radius: 8px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content .item .details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 40px; /* Adjusted to account for the h3 element */
+}
+
+.content .item .details-grid .detail-card {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.content .item .details-grid .detail-card p {
+  margin: 0;
+}
+
+.content .item .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.content .item .actions a,
+.content .item .actions .button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2c6693;
+  border: none;
+  border-radius: 4px;
   text-decoration: none;
-  color: #333;
+  transition: background-color 0.3s ease;
 }
 
-.content .item a:hover {
-  text-decoration: underline;
+.content .item .actions a:hover,
+.content .item .actions .button:hover {
+  background-color: #0056b3;
+}
+
+.content .item .actions a:active,
+.content .item .actions .button:active {
+  background-color: #003d80;
+}
+
+.content .item .actions a:focus,
+.content .item .actions .button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 @media (max-width: 900px) {
