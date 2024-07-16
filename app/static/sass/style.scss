@@ -1,0 +1,71 @@
+
+@import 'layout/base';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'modules/buttons';
+@import 'modules/grids';
+@import 'modules/messages';
+
+
+
+
+$body-bg: #f4f4f4;
+$nav-bg: #333;
+$nav-color: #fff;
+$error-color: red;
+$flash-error-bg: #f8d7da;
+$flash-error-color: #721c24;
+$flash-success-bg: #d4edda;
+$flash-success-color: #155724;
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $body-bg;
+}
+
+nav {
+    background-color: $nav-bg;
+    color: $nav-color;
+    padding: 10px;
+
+    a {
+        color: $nav-color;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+}
+
+.container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+    color: $error-color;
+}
+
+.flashes {
+    list-style: none;
+    padding: 0;
+
+    li {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+
+        &.error {
+            background-color: $flash-error-bg;
+            color: $flash-error-color;
+        }
+
+        &.success {
+            background-color: $flash-success-bg;
+            color: $flash-success-color;
+        }
+    }
+}

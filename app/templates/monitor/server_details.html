@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-content">
+    <h2>{{ server.name }} Details</h2>
+    <p>IP Address: {{ server.ip_address }}</p>
+    <p>Owner: {{ server.owner.username }}</p>
+    <p>Available: {{ test.available }}</p>
+    <p>Analytics: {{ test.analytics  }}</p>
+    <p>Dashboards: {{ test.dashboards  }}</p>
+    <p>Last Test: {{ test.testTime  }}</p>
+    <p>Previous succesful analytics: {{ test.last_checked  }}</p>
+    
+    <button class="button" href="{{ url_for('settings.edit_server', id=server.id) }}">Edit Server</button>
+    <button onclick="runTest('{{ server.ip_address }}','{{ server.username }}','{{ server.password }}' )" class="button">Run test</button>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/tests.js') }}"></script>
+{% endblock %}

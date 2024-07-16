@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Server Monitoring Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='sass/style.css') }}">
+  
+</head>
+<body>
+  <header>
+    <h2>Server Monitoring Dashboard</h2>
+    <nav>
+      <a href="{{ url_for('monitor.index') }}">Home</a>
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('auth.logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('auth.login') }}">Login</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% block scripts %}{% endblock %}
+
+  <footer>
+    &copy; 2024 Server Monitoring
+  </footer>
+</body>
+</html>

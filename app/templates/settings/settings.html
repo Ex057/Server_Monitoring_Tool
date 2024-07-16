@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-content">
+    <h2>Your Servers</h2>
+    <ul>
+      {% for server in servers %}
+        <li>
+          <a href="{{ url_for('settings.edit_server', id=server.id) }}">{{ server.name }}</a>
+          - {{ server.ip_address }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

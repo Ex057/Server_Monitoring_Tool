@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-content">
+    <div class="messages">
+      <p>Welcome, {{ current_user.username }}!</p>
+      <p>System messages will appear here.</p>
+    </div>
+
+    <div class="content">
+      {% for server in servers %}
+        <div class="item">
+          <a href="{{ url_for('monitor.server_details', id=server.id) }}">
+            <h3>{{ server.name }}</h3>
+            <p>Available: {{ test.available }}</p>
+            <p>Analytics: {{ test.analytics  }}</p>
+            <p>Dashboards: {{ test.dashboards  }}</p>
+            <p>Last Test: {{ test.testTime  }}</p>
+          </a>
+          <button class="button">View Logs</button>
+        </div>
+      {% endfor %}
+    </div>
+
+  <div class="sidebar">
+    <menu>
+      <li><a href="{{ url_for('settings.edit_server') }}">Server Configuring</a></li>
+      <li><a href="#">Settings</a></li>
+    </menu>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-content">
+    <h2>Logs for {{ server.name }}</h2>
+    <ul>
+      {% for log in logs %}
+        <li>{{ log.timestamp }} - {{ log.message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

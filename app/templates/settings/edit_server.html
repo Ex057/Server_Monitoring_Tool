@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-content">
+    <h2>Edit {{ server.name }}</h2>
+    <form method="post">
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}<br>
+        {% for error in form.name.errors %}
+          <span class="error">{{ error }}</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.ip_address.label }}<br>
+        {{ form.ip_address(size=32) }}<br>
+        {% for error in form.ip_address.errors %}
+          <span class="error">{{ error }}</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.user_name.label}}<br>
+        {{ form.user_name(size=32) }}<br>
+        {% for error in form.user_name.errors %}
+          <span class="error">{{ error }}</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.password.label}}<br>
+        {{ form.password(size=32) }}<br>
+        {% for error in form.password.errors %}
+          <span class="error">{{ error }}</span>
+        {% endfor %}
+      </p>
+      <p>{{ form.submit() }}</p>
+    </form>
+  </div>
+{% endblock %}

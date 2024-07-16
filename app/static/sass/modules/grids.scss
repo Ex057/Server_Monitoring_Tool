@@ -1,0 +1,41 @@
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); // Adjust minmax values
+    gap: 20px;
+    padding: 20px;
+    margin-left: 250px; // Adjust based on sidebar width
+    margin-top: 80px; // Adjust based on header height
+  }
+  
+  .content .item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .content .item a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .content .item a:hover {
+    text-decoration: underline;
+  }
+  
+  // Responsive Grid (adjust breakpoints as needed)
+  @media (max-width: 900px) {
+    .content {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); // Adjust minmax values
+      margin-left: 200px; // Adjust based on sidebar width
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .content {
+      grid-template-columns: 1fr; // Stack items vertically
+      margin-left: 0; // Remove sidebar margin
+    }
+  }
