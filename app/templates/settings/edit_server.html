@@ -2,38 +2,40 @@
 
 {% block content %}
   <div class="page-content">
-    <h2>Edit {{ server.name }}</h2>
-    <form method="post">
-      {{ form.hidden_tag() }}
-      <p>
-        {{ form.name.label }}<br>
-        {{ form.name(size=32) }}<br>
-        {% for error in form.name.errors %}
-          <span class="error">{{ error }}</span>
-        {% endfor %}
-      </p>
-      <p>
-        {{ form.ip_address.label }}<br>
-        {{ form.ip_address(size=32) }}<br>
-        {% for error in form.ip_address.errors %}
-          <span class="error">{{ error }}</span>
-        {% endfor %}
-      </p>
-      <p>
-        {{ form.user_name.label}}<br>
-        {{ form.user_name(size=32) }}<br>
-        {% for error in form.user_name.errors %}
-          <span class="error">{{ error }}</span>
-        {% endfor %}
-      </p>
-      <p>
-        {{ form.password.label}}<br>
-        {{ form.password(size=32) }}<br>
-        {% for error in form.password.errors %}
-          <span class="error">{{ error }}</span>
-        {% endfor %}
-      </p>
-      <p>{{ form.submit() }}</p>
-    </form>
+    <div class="card">
+      <h2 class="card-header">Edit Server</h2>
+      <form method="post" class="card-body">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+          {{ form.name.label(class="form-label") }}
+          {{ form.name(class="form-input") }}
+          {% for error in form.name.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          {{ form.ip_address.label(class="form-label") }}
+          {{ form.ip_address(class="form-input") }}
+          {% for error in form.ip_address.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          {{ form.user_name.label(class="form-label") }}
+          {{ form.user_name(class="form-input") }}
+          {% for error in form.user_name.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          {{ form.password.label(class="form-label") }}
+          {{ form.password(class="form-input") }}
+          {% for error in form.password.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </div>
+        {{ form.submit(class="button") }}
+      </form>
+    </div>
   </div>
 {% endblock %}

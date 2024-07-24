@@ -6,10 +6,21 @@
   
 </head>
 <body>
-  
+  <header>
+    <h2>Server Monitoring Dashboard</h2>
+    <nav class="base-nav">
+      
+      
+      <a href="{{ url_for('auth.login') }}">Login</a>
+      <a href="{{ url_for('auth.register') }}">Register</a>
+      
+        
+      
+    </nav>
+  </header>
   <main class="container">
     <div class = "login_halfbox" >
-      <h2>Server Monitoring Dashboard</h2>
+      <p>Enter your credentials</p>
       
     </div>
     <div class="login_form">

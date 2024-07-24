@@ -4,6 +4,7 @@ from . import monitor_bp
 from .forms import ServerForm
 from ..models import db, Server, test
 from .testlogic import check_dhis2_instance
+from sqlalchemy import select
 
 @monitor_bp.route('/')
 def index():
@@ -18,11 +19,15 @@ def index():
 
 @monitor_bp.route('/server/<int:id>')
 def server_details(id):
-    
-    server = Server.query.get_or_404(id)
-    
-    tests = test.query.filter_by(ip_address = server.ip_address).all()
-        
+    print(id)
+    stmt = select(Server).where(Server.id == id)
+    server = db.session.execute(stmt).scalar_one_or_none()
+    print(server)
+    if server:
+        tests = db.session.execute(select(test).where(test.ip_address == server.ip_address)).scalars().all()
+    else:
+        tests = []
+    print(tests)
     return render_template('monitor/server_details.html', server=server, test=tests)
 
 @monitor_bp.route('/server/<int:id>/logs')
@@ -71,9 +76,10 @@ def run_test():
         dashboards = test_result[2],
         testTime = test_result[3],
         owner_id = current_user.id,
-        last_checked = db.Column(db.DateTime, default=None)
+        last_checked = test_result[3]
     )
     db.session.add(new_test)
     db.session.commit()
-
+    
+    
     return jsonify({"success": True, "message": "Test ran successfully"})

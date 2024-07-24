@@ -50,4 +50,4 @@ class test(db.Model):
     last_checked = db.Column(db.DateTime, default=None)
 
     def __repr__(self):
-        return f'<Server {self.name}>'
+        return f'<test {self.id}>'

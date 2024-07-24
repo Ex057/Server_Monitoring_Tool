@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
   <div class="sidebar">
     <menu>
       <li><a href="{{ url_for('settings.edit_server') }}">Server Configuring</a></li>
@@ -9,17 +8,36 @@
     </menu>
   </div>
   <div class="page-content">
-    <h2>{{ server.name }} Details</h2>
-    <p>IP Address: {{ server.ip_address }}</p>
-    <p>Owner: {{ server.owner.username }}</p>
-    <p>Available: {{ test.available }}</p>
-    <p>Analytics: {{ test.analytics  }}</p>
-    <p>Dashboards: {{ test.dashboards  }}</p>
-    <p>Last Test: {{ test.testTime  }}</p>
-    <p>Previous succesful analytics: {{ test.last_checked  }}</p>
+    <div class="server-card">
+      <div class="server-header">
+        <h2>{{ server.name }}</h2>
+        <p>IP Address: {{ server.ip_address }}</p>
+        <p>Owner: {{ server.owner.username }}</p>
+      </div>
+      <table class="test-results">
+        <thead>
+          <tr>
+            <th>Available</th>
+            <th>Analytics</th>
+            <th>Dashboards</th>
+            <th>Last Test</th>
+            <th>Previous Successful Analytics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ test.available }}</td>
+            <td>{{ test.analytics }}</td>
+            <td>{{ test.dashboards }}</td>
+            <td>{{ test.testTime }}</td>
+            <td>{{ test.last_checked }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     
     <button class="button" href="{{ url_for('settings.edit_server', id=server.id) }}">Edit Server</button>
-    <button onclick="runTest('{{ server.ip_address }}','{{ server.user_name }}','{{ server.password }}' )" class="button">Run test</button>
+    <button onclick="runTest('{{ server.ip_address }}','{{ server.username }}','{{ server.password }}' )" class="button">Run test</button>
   </div>
 {% endblock %}
 

@@ -1,0 +1,28 @@
+.server-card {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.server-header {
+  background-color: #e0e0e0;
+  padding: 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.test-results {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.test-results th, .test-results td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.test-results th {
+  background-color: #f0f0f0;
+}/*# sourceMappingURL=server-details.css.map */
