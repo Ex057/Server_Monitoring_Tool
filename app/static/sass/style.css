@@ -33,37 +33,68 @@ body {
 header {
   background-color: #2c6693;
   color: #fff;
-  padding: 5px;
+  padding: 1rem;
   width: 100%;
   top: 0;
   z-index: 10;
   height: 64px;
   position: fixed;
 }
-
-header h2 {
+header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+header header h2 {
   margin: 0;
 }
-
-.login-text {
-  text-align: center;
-}
-
-.base-nav {
+header .base-nav {
   background-color: #2c6693;
+  display: flex;
+  align-items: center;
 }
-
-.base-nav a {
+header .dropdown {
+  position: relative;
   display: inline-block;
-  padding: 5px 5px;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  margin-left: 1rem;
 }
-
-.base-nav a:hover {
-  background-color: #3775a3;
+header .dropdown:hover .dropdown-content {
+  display: block;
+}
+header .dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+header .dropbtn i {
+  margin-left: 0.5rem;
+}
+header .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+header .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+header .dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+header .login-text {
+  text-align: center;
 }
 
 footer {
@@ -83,7 +114,7 @@ footer {
   left: 0;
   bottom: 18px;
   padding: 0;
-  margin: 0;
+  margin: 10 px 5px;
   z-index: 5;
   width: -moz-fit-content;
   width: fit-content;
@@ -97,8 +128,9 @@ footer {
 }
 
 .sidebar menu li {
-  margin-bottom: 1px;
+  margin: 5px 20px;
   padding: 1px;
+  text-align: center;
 }
 
 .sidebar menu a {
@@ -131,20 +163,29 @@ footer {
 }
 
 .content {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 20px;
   padding: 20px;
 }
 
 .content .item {
   background-color: #fff;
+  flex: 0 0 calc(20% - 20px);
   padding: 20px;
+  min-width: 250px;
+  max-width: 100%;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .content .item:hover {
@@ -183,43 +224,6 @@ footer {
 
 .content .item .details-grid .detail-card p {
   margin: 0;
-}
-
-.content .item .actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.content .item .actions a,
-.content .item .actions .button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #2c6693;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.content .item .actions a:hover,
-.content .item .actions .button:hover {
-  background-color: #0056b3;
-}
-
-.content .item .actions a:active,
-.content .item .actions .button:active {
-  background-color: #003d80;
-}
-
-.content .item .actions a:focus,
-.content .item .actions .button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 @media (max-width: 900px) {
@@ -323,6 +327,16 @@ footer {
 .error {
   color: red;
   font-size: 0.9em;
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  stroke-width: 2px;
+  stroke: currentColor;
+  fill: currentColor;
+  vertical-align: middle;
 }
 
 nav {

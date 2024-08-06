@@ -6,17 +6,38 @@
   
 </head>
 <body>
+  {% include 'icons-sprite.svg' %}
   <header>
-    <h2>Server Monitoring Dashboard</h2>
-    <nav class="base-nav">
-      
-      {% if current_user.is_authenticated %}
-        <a href="{{ url_for('monitor.index') }}">Home</a>
-        <a href="{{ url_for('auth.logout') }}">Logout</a>
-      {% else %}
-        <p class="login-text">Login</p>
-      {% endif %}
-    </nav>
+    <div class="header-content">
+      <h2>Server Monitoring Tool</h2>
+      <nav class="base-nav">
+        {% if current_user.is_authenticated %}
+          <div class="dropdown">
+            <button class="dropbtn">Servers</button>
+            <div class="dropdown-content">
+              <a href="{{ url_for('monitor.index') }}">View Servers</a>
+              <a href="{{ url_for('settings.edit_server') }}">Add Server</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn"><svg class="icons" width="24" height="24"><use xlink:href="{{ url_for('static', filename='icons/sprite.svg') }}#icon-cog"></use></svg></button>
+            <div class="dropdown-content">
+              <a href="#">General Settings</a>
+              <a href="#">Notifications</a>
+            </div>  
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn"><svg class="icons" width="24" height="24"><use xlink:href="{{ url_for('static', filename='icons/sprite.svg') }}#icon-user-circle"></use></svg></button>
+            <div class="dropdown-content">
+              <a href="#">Manage Account</a>
+              <a href="{{ url_for('auth.logout') }}">Logout</a>
+            </div>
+          </div>
+        {% else %}
+          <p class="login-text">Login</p>
+        {% endif %}
+      </nav>
+    </div>
   </header>
 
   <main class="container">

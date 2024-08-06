@@ -1,35 +1,66 @@
 header {
   background-color: #2c6693;
   color: #fff;
-  padding: 5px;
+  padding: 1rem;
   width: 100%;
   top: 0;
   z-index: 10;
   height: 64px;
   position: fixed;
 }
-
-header h2 {
+header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+header header h2 {
   margin: 0;
 }
-
-.login-text {
-  text-align: center;
-}
-
-.base-nav {
+header .base-nav {
   background-color: #2c6693;
+  display: flex;
+  align-items: center;
 }
-
-.base-nav a {
+header .dropdown {
+  position: relative;
   display: inline-block;
-  padding: 5px 5px;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  margin-left: 1rem;
 }
-
-.base-nav a:hover {
-  background-color: #3775a3;
+header .dropdown:hover .dropdown-content {
+  display: block;
+}
+header .dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+header .dropbtn i {
+  margin-left: 0.5rem;
+}
+header .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+header .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+header .dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+header .login-text {
+  text-align: center;
 }/*# sourceMappingURL=header.css.map */

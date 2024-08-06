@@ -4,7 +4,7 @@
   left: 0;
   bottom: 18px;
   padding: 0;
-  margin: 0;
+  margin: 10 px 5px;
   z-index: 5;
   width: fit-content; 
   border-radius: 4px;
@@ -17,8 +17,9 @@
 }
 
 .sidebar menu li {
-  margin-bottom: 1px;
+  margin: 5px 20px;
   padding: 1px;
+  text-align: center;
 }
 
 .sidebar menu a {

@@ -1,19 +1,28 @@
 .content {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); // Adjust minmax values
-    gap: 20px;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
     
   }
   
-  .content .item {
+.content .item {
     background-color: #fff;
+    flex: 0 0 calc(20% - 20px);
     padding: 20px;
+    min-width: 250px;
+    max-width: 100%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
 }
 
 .content .item:hover {
@@ -54,54 +63,54 @@
     margin: 0;
 }
 
-.content .item .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-}
+//.content .item .actions {
+//    display: flex;
+//    justify-content: space-between;
+//    align-items: center;
+//    margin-top: 20px;
+//}
 
-.content .item .actions a,
-.content .item .actions .button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #2c6693;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
+//.content .item .actions a,
+//.content .item .actions .button {
+//    display: inline-block;
+//    padding: 10px 20px;
+//    font-size: 14px;
+//    font-weight: bold;
+//    color: #fff;
+//    background-color: #2c6693;
+//    border: none;
+//    border-radius: 4px;
+//    text-decoration: none;
+//    transition: background-color 0.3s ease;
+//}
 
-.content .item .actions a:hover,
-.content .item .actions .button:hover {
-    background-color: #0056b3;
-}
+//.content .item .actions a:hover,
+//.content .item .actions .button:hover {
+//    background-color: #0056b3;
+//}
 
-.content .item .actions a:active,
-.content .item .actions .button:active {
-    background-color: #003d80;
-}
+//.content .item .actions a:active,
+//.content .item .actions .button:active {
+//    background-color: #003d80;
+//}
 
-.content .item .actions a:focus,
-.content .item .actions .button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
-}
+//.content .item .actions a:focus,
+//.content .item .actions .button:focus {
+//    outline: none;
+//    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+//}
   
   // Responsive Grid (adjust breakpoints as needed)
   @media (max-width: 900px) {
     .content {
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); // Adjust minmax values
-      margin-left: 200px; // Adjust based on sidebar width
+      margin-left: 200px;
     }
   }
   
   @media (max-width: 700px) {
     .content {
-      grid-template-columns: 1fr; // Stack items vertically
-      margin-left: 0; // Remove sidebar margin
+      grid-template-columns: 1fr;
+      margin-left: 0;
     }
   }

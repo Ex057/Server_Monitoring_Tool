@@ -1,0 +1,5 @@
+{% raw %}
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  {% include 'static/icons/sprite.svg' %}
+</svg>
+{% endraw %}

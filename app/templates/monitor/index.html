@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <div class="sidebar">
+  <!--div class="sidebar">
     <menu>
       <li><a href="{{ url_for('settings.edit_server') }}">Server Configuring</a></li>
       <li><a href="#">Settings</a></li>
@@ -11,31 +11,34 @@
   <div class="page-content">
     <div class="messages">
       <p>System messages will appear here.</p>
-    </div>
+    </div-->
 
     <div class="content">
       {% for server in servers %}
-        <div class="item">
-          <h3>{{ server.name }}</h3>
-          <div class="details-grid">
-            <div class="detail-card">
-              <p>Available {{ test.available }}</p>
+      <a href="{{ url_for('monitor.server_details', id=server.id) }}">
+          <div class="item">
+            <h3>{{ server.name }}</h3>
+            <div class="details-grid">
+              <div class="detail-card">
+                <p>Available {{ test.available }}</p>
+              </div>
+              <div class="detail-card">
+                <p>Analytics {{ test.analytics }}</p>
+              </div>
+              <div class="detail-card">
+                <p>Dashboards {{ test.dashboards }}</p>
+              </div>
+              <div class="detail-card">
+                <p>Last Test {{ test.testTime }}</p>
+              </div>
             </div>
-            <div class="detail-card">
-              <p>Analytics {{ test.analytics }}</p>
-            </div>
-            <div class="detail-card">
-              <p>Dashboards {{ test.dashboards }}</p>
-            </div>
-            <div class="detail-card">
-              <p>Last Test {{ test.testTime }}</p>
-            </div>
+            <!--div class="actions">
+              <a href="{{ url_for('monitor.server_details', id=server.id) }}">View details</a>
+              <button class="button">View Logs</button>
+            </div-->
+
           </div>
-          <div class="actions">
-            <a href="{{ url_for('monitor.server_details', id=server.id) }}">View details</a>
-            <button class="button">View Logs</button>
-          </div>
-        </div>
+        </a>
       {% endfor %}
     </div>
   </div>
