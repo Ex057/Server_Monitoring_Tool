@@ -9,7 +9,7 @@ from sqlalchemy import select
 @monitor_bp.route('/')
 def index():
     tests = {}
-    testa = None
+    
     servers = Server.query.all()
     if servers:
         for server in servers:
